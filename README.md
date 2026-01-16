@@ -1,6 +1,6 @@
 # 📈 Nepse CLI - Meroshare IPO Automation & Market Data
 
-[![PyPI version](https://badge.fury.io/py/nepse-cli.svg)](https://badge.fury.io/py/nepse-cli)
+[![PyPI version](https://badge.fury.io/py/nepse-cli.svg?cacheSeconds=1)](https://badge.fury.io/py/nepse-cli)
 [![Python Version](https://img.shields.io/pypi/pyversions/nepse-cli.svg)](https://pypi.org/project/nepse-cli/)
 
 ![Nepse CLI](nepse-cli-image.png)
@@ -379,3 +379,4 @@ playwright install chromium
 - Test with: `nepse test-login`
 - Verify credentials with: `nepse list-members`
 - Update credentials with: `nepse add-member`
+
