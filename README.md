@@ -3,381 +3,139 @@
 [![PyPI version](https://badge.fury.io/py/nepse-cli.svg?cacheSeconds=1)](https://badge.fury.io/py/nepse-cli)
 [![Python Version](https://img.shields.io/pypi/pyversions/nepse-cli.svg)](https://pypi.org/project/nepse-cli/)
 
-![Nepse CLI](nepse-cli-image.png)
+![Nepse CLI](https://res.cloudinary.com/dzbc5mlm9/image/upload/v1768644603/nepse-cli-image_tcx7tx.png)
 
-A modern, interactive command-line tool to automate IPO applications on Meroshare for multiple family members and view real-time NEPSE market data.
+A professional command-line tool for NEPSE market analysis and automated Meroshare IPO applications.
 
-**✨ Features:**
-- 🤖 Automated IPO application for entire family
-- 📊 Real-time market data and indices
-- 💼 Portfolio tracking for multiple members
-- 🖥️ Beautiful TUI with Rich tables and interactive menus
-- 🔍 Fuzzy search and autocompletion
-- 🚀 Headless automation (no browser window needed)
+> **Note:** This is a showcase repository. The source code is private.
 
 ## Installation
 
-### 📦 Install from PyPI (Recommended)
-
-**⚠️ Important for Windows Users:** If you installed Python from **Microsoft Store**, please uninstall it and install Python from the [official Python website](https://www.python.org/downloads/) instead. Microsoft Store Python has PATH issues that prevent `nepse` command from working properly.
+Install directly from PyPI:
 
 ```bash
 pip install nepse-cli
 ```
 
-**Update to the latest version:**
-```bash
-pip install --upgrade nepse-cli
-```
+Run the tool:
 
-Then run:
 ```bash
 nepse
 ```
 
-**⚠️ Windows Users:** If you get `'nepse' is not recognized` error after installation:
+## Overview
 
-**Quick Fix - Use this command instead:**
-```bash
-python -m nepse_cli
-```
+Nepse CLI is a comprehensive command-line tool designed for Nepal Stock Exchange (NEPSE) investors and traders. It combines automated IPO application capabilities with extensive market analysis features.
 
-**Permanent Fix - Add Python Scripts to PATH:**
+### Key Features
 
-**Step 1: Find your Scripts path**
-```bash
-# Run this command to find where nepse.exe is installed:
-python -c "import sys; import os; print(os.path.join(sys.prefix, 'Scripts'))"
-```
-Copy the output path (e.g., `C:\Users\YourName\AppData\Local\Packages\Python...\Scripts`)
+**IPO Automation**
+- Automated application for IPO, FPO, and Rights offerings
+- Multi-member family support for batch applications
+- Browser-based (Playwright) and API-based (fast) modes
+- Headless and GUI operation modes
+- Automatic share calculation and validation
+- Result checking and status tracking
 
-**Step 2: Add to PATH**
-- Press `Win + R`, type `sysdm.cpl`, press Enter
-- Go to `Advanced` tab → `Environment Variables`
-- Under `User variables`, select `Path` → Click `Edit`
-- Click `New` → Paste the Scripts path from Step 1
-- Click `OK` on all dialogs
-- **Restart your terminal**
+**Market Analysis**
+- Real-time NEPSE indices (Main, Sensitive, Float, Sector-wise)
+- Comprehensive stock information and live prices
+- Fundamental analysis and company profiles
+- Market depth and order book visualization
+- Trading signals and price alerts
+- Floor sheet with live trade data
+- 52-week performance tracking
+- Broker rankings and analysis
 
-See more details in [Troubleshooting](#troubleshooting) section below.
+**Portfolio Management**
+- Multi-member portfolio tracking
+- Real-time profit/loss calculation with WACC
+- Secure local credential storage
+- Interactive member management
+- Portfolio visualization and reporting
+
+**User Experience**
+- Interactive shell with command palette
+- Autocompletion and command history
+- Modern terminal UI with Rich formatting
+- Progress indicators for operations
+- Color-coded output and tables
+
+## Requirements
+
+- Python 3.8 or higher
+- Windows, Linux, or macOS
+- Internet connection
+- Meroshare account (for IPO features)
+
+## Available Commands
+
+### Market Data
+- `nepse` - Display NEPSE indices
+- `subidx <name>` - Show sub-index details
+- `mktsum` - Display market summary
+- `topgl` - Show top gainers and losers
+- `stonk <symbol>` - Show stock details
+- `52week` - Stocks at 52-week high/low
+- `near52` - Stocks near 52-week high/low
+- `floor [--date YYYY-MM-DD] [--buyer ID] [--seller ID] [--page N]` - View floorsheet (live or historical)
+- `holidays` - Show market holidays
+
+### Stock Analysis
+- `profile <symbol>` - Company profile & info
+- `fundamental <symbol>` - Stock fundamentals (EPS, P/E)
+- `depth <symbol>` - Market depth (order book)
+
+### Trading Info
+- `signals` - Strong buy/sell signals
+- `announce` - Market announcements
+- `brokers` - List all brokers
+- `sectors` - List all sectors
+
+### IPO Management
+- `ipo` - List all open IPOs
+- `apply [member_name]` - Apply for IPO (use --gui for browser)
+- `apply-all` - Apply IPO for all members using browser automation (slower)
+- `apply-fast` - ⚡ Fast API-based IPO application (recommended - single member)
+- `apply-all-fast` - ⚡ Fast API-based IPO for all members (recommended)
+- `result [--all]` - Check IPO allotment results
+
+> **Note:** `apply` and `apply-all` use Playwright browser automation and are slower. For faster applications, use `apply-fast` or `apply-all-fast` which use direct API calls.
+
+### Configuration
+- `add` - Add new family member
+- `list` - List all family members
+- `edit` - Edit existing family member
+- `delete` - Delete family member
+- `manage` - Member management menu
+- `login` - Test login for member
+- `portfolio` - Get real-time portfolio with P/L
+- `dp-list` - Search and list available DPs
+
+### Interactive Tools
+- `help` - Show help information
+- `clear` - Clear the screen (cls/clear)
+- `exit` - Exit the CLI
+
+## Links
+
+- **PyPI Package:** [https://pypi.org/project/nepse-cli/](https://pypi.org/project/nepse-cli/)
+- **Report Issues:** [GitHub Issues](../../issues)
+
+## License
+
+MIT License
+
+## Disclaimer
+
+This tool is for educational and personal use only. Users are responsible for complying with Meroshare's terms of service and applicable regulations. The developers are not liable for any misuse or issues arising from the use of this tool.
+
+## Acknowledgments
+
+- Data sources: NEPSE, ShareSansar, ShareHubNepal
+- Built with: Rich, Playwright, Click, Prompt Toolkit
+- Community contributions and feedback
 
 ---
 
-### 🛠️ Other Installation Options
-
-**Install from Source (For Development):**
-```powershell
-cd "Nepse CLI"
-pip install -e .
-```
-
-**🚀 Easy Start (Windows - Source Code):**
-If you have the source code folder:
-1.  Double-click **`start_nepse.bat`**.
-2.  That's it! It will check for Python, install dependencies, and launch the tool.
-
-**Browser Setup:**
-The CLI will automatically install Playwright browsers on first run if they're not already installed. If you prefer to install manually:
-```powershell
-playwright install chromium
-```
-
-## Usage
-
-### Interactive Shell (Recommended)
-Simply run `nepse` to enter the modern interactive shell:
-```powershell
-nepse
-```
-Once inside the shell, you **do not** need to type `nepse` again. Just type the command directly:
-*   `stonk NABIL`
-*   `ipo`
-*   `apply`
-*   `mktsum`
-
-**Shell Features:**
-*   **Command Palette**: Type `/` to search all available commands.
-*   **Autocompletion**: Type commands and see suggestions.
-*   **History**: Use Up/Down arrows to cycle through command history.
-*   **Help**: Type `help` or `?` to see the command list.
-
-### Direct Commands
-
-#### Meroshare IPO Automation
-```powershell
-# Apply for IPO (headless by default - no browser window)
-nepse apply
-
-# Apply with browser window visible
-nepse apply --gui
-
-# Apply for ALL family members (multi-tab automation)
-nepse apply-all
-
-# Apply for all members with browser visible
-nepse apply-all --gui
-
-# Add or update a family member
-nepse add-member
-
-# List all family members
-nepse list-members
-
-# Get portfolio (headless by default)
-nepse get-portfolio
-
-# Get portfolio with browser window visible
-nepse get-portfolio --gui
-
-# Test login (headless by default)
-nepse test-login
-
-# Test login with browser window visible
-nepse test-login --gui
-
-# View available DP list
-nepse dplist
-```
-
-#### Market Data Commands
-```powershell
-# View all open IPOs/FPOs
-nepse ipo
-
-# View NEPSE indices
-nepse nepse
-
-# View sub-index details (Banking, Hydropower, etc.)
-nepse subidx BANKING
-nepse subidx HYDROPOWER
-
-# View market summary
-nepse mktsum
-
-# View top 10 gainers and losers
-nepse topgl
-
-# View stock details (information only - no charts)
-nepse stonk NABIL
-nepse stonk NICA
-```
-
-## Features
-
-### 🖥️ Modern UI & UX
-- **Rich TUI**: Beautiful tables, panels, and colored output for all commands.
-- **Interactive Menus**: Select family members using arrow keys (no more typing IDs!).
-- **Smart Shell**: Autocompletion, fuzzy search, and command history.
-- **Progress Bars**: Visual feedback for all long-running operations.
-
-### 🤖 Meroshare Automation
-- ✅ **Multi-member Support**: Manage credentials for the whole family.
-- ✅ **One-Command Apply**: `nepse apply-all` applies for everyone in sequence.
-- ✅ **Interactive Selection**: Choose a specific member from a list using arrow keys.
-- ✅ **Headless Mode**: Fast and silent operation by default.
-- ✅ **Secure Storage**: Credentials stored locally in your user directory.
-
-### 📈 Market Data
-- ✅ **Live Indices**: NEPSE, Sensitive, Float, and Sub-indices.
-- ✅ **Market Summary**: Turnover, volume, market cap, and active stocks.
-- ✅ **Top Gainers/Losers**: Real-time lists of best and worst performers.
-- ✅ **Stock Details**: Price, volume, sector, and changes for any listed company.
-- ✅ **IPO Watch**: List of all open and upcoming IPOs/FPOs/Right Shares.
-
-## Configuration
-
-All credential data is stored in a **fixed location** to avoid path issues:
-
-📁 **Data Directory**: `C:\Users\%USERNAME%\Documents\merosharedata\`
-
-Files stored here:
-- `family_members.json` - All family member credentials
-- `ipo_config.json` - IPO application settings (if any)
-- `nepse_cli_history.txt` - Command history for the interactive shell
-
-This means the CLI works from **any directory** - your data is always in the same place!
-
-Family member data structure:
-
-```json
-{
-  "members": [
-    {
-      "name": "Dad",
-      "dp_value": "139",
-      "username": "your_username",
-      "password": "your_password",
-      "transaction_pin": "1234",
-      "applied_kitta": 10,
-      "crn_number": "YOUR_CRN"
-    }
-  ]
-}
-```
-
-## 👨‍👩‍👧‍👦 Family IPO Management
-
-### Adding Family Members
-
-Add multiple family members to apply for IPOs on their behalf:
-
-```bash
-nepse add-member
-```
-
-Provide for each member:
-- **Name**: e.g., "Dad", "Mom", "Me"
-- **DP Value**: Your DP number (e.g., 139)
-- **Username**: Meroshare username
-- **Password**: Meroshare password
-- **Transaction PIN**: 4-digit PIN for submissions
-- **Applied Kitta**: Number of shares to apply (e.g., 10, 20)
-- **CRN Number**: Customer Reference Number
-
-### Applying for Multiple Members
-
-```bash
-# Apply for one member (interactive selection)
-nepse apply
-
-# Apply for ALL family members automatically
-nepse apply-all
-
-# Apply with browser visible (for debugging)
-nepse apply --gui
-nepse apply-all --gui
-```
-
-### Managing Members
-
-```bash
-# List all configured members
-nepse list-members
-
-# Update member details
-nepse add-member
-# (Select existing member to update)
-
-# Test login for a member
-nepse test-login
-
-# Get portfolio for a member
-nepse get-portfolio
-```
-
-## 📊 Quick Reference
-
-### Market Data Commands
-```bash
-nepse ipo                    # View open IPOs/FPOs
-nepse nepse                  # View NEPSE indices
-nepse subidx BANKING         # View Banking sector
-nepse subidx HYDROPOWER      # View Hydropower sector
-nepse mktsum                 # Market summary
-nepse topgl                  # Top gainers/losers
-nepse stonk NABIL            # Stock details
-```
-
-### Available Sub-Indices
-`BANKING`, `DEVBANK`, `FINANCE`, `HOTELS AND TOURISM`, `HYDROPOWER`, `INVESTMENT`, `LIFE INSURANCE`, `MANUFACTURING AND PROCESSING`, `MICROFINANCE`, `MUTUAL FUND`, `NONLIFE INSURANCE`, `OTHERS`, `TRADING`
-
-### IPO Automation Commands
-```bash
-nepse apply                  # Apply for one member
-nepse apply-all              # Apply for all members
-nepse add-member             # Add/update member
-nepse list-members           # List all members
-nepse get-portfolio          # Get portfolio
-nepse test-login             # Test login
-nepse dplist                 # View available DPs
-```
-
-## 🔒 Security
-
-- ✅ Credentials stored locally in JSON format
-- ✅ File permissions set to 600 on Unix systems
-- ✅ Data stored in user's Documents folder
-- ⚠️ Never commit `family_members.json` to version control
-- ⚠️ Keep credentials file secure and private
-
-## Troubleshooting
-
-**'nepse' is not recognized (Windows):**
-
-If you get `'nepse' is not recognized as an internal or external command` after installation:
-
-**⚠️ Most Common Issue - Microsoft Store Python:**
-If you installed Python from Microsoft Store, this is likely your problem. The Microsoft Store version of Python has PATH configuration issues.
-
-**Solution:**
-1. Uninstall Python from Microsoft Store (Settings → Apps → Python → Uninstall)
-2. Download and install Python from [python.org](https://www.python.org/downloads/)
-3. **Important:** Check "Add Python to PATH" during installation
-4. Reinstall nepse-cli: `pip install nepse-cli`
-5. The `nepse` command should now work without any extra configuration!
-
-**Other Options if you want to keep Microsoft Store Python:**
-
-**Option 1: Use Python module syntax (Quick Fix)**
-```bash
-python -m nepse_cli
-```
-
-**Option 2: Find and run nepse.exe directly**
-```bash
-# First, find where nepse.exe is installed:
-python -c "import sys; import os; print(os.path.join(sys.prefix, 'Scripts', 'nepse.exe'))"
-
-# Then run the output path, for example:
-C:\Users\YourUsername\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_xxx\LocalCache\local-packages\Python313\Scripts\nepse.exe
-```
-
-**Option 3: Add Scripts folder to PATH (Permanent Fix)**
-
-**Step 1 - Find your Scripts path:**
-```bash
-python -c "import sys; import os; print(os.path.join(sys.prefix, 'Scripts'))"
-```
-Copy the output path.
-
-**Step 2 - Add to PATH:**
-1. Press `Win + R`, type `sysdm.cpl`, press Enter
-2. Go to `Advanced` tab → `Environment Variables`
-3. Under `User variables`, select `Path` → Click `Edit`
-4. Click `New` → Paste the Scripts path from Step 1
-5. Click `OK` on all dialogs
-6. **Close ALL terminal windows completely** (including VS Code terminal)
-7. Open a NEW terminal window
-8. Now `nepse` command should work
-
-**Still not working after adding to PATH?**
-- Verify the path was added correctly: Run `echo %PATH%` in cmd and check if your Scripts path is there
-- Try logging out and back into Windows (or restart your computer)
-- Check if nepse.exe exists: Run the command from Step 1 above and verify the file exists at that location
-- If file doesn't exist, reinstall: `pip uninstall nepse-cli` then `pip install nepse-cli`
-- As a last resort, use `python -m nepse_cli` instead of `nepse`
-
-**Option 4: Reinstall with --user flag**
-```bash
-pip uninstall nepse-cli
-pip install --user nepse-cli
-# Then add: %APPDATA%\Python\Python313\Scripts to PATH
-```
-
-**Command not found (Linux/Mac):**
-- Make sure `~/.local/bin` is in your PATH
-- Or install with: `pip install --user nepse-cli`
-- Restart your terminal after installation
-
-**Browser not installed:**
-```bash
-playwright install chromium
-# Or use: python -m playwright install chromium
-```
-
-**Login fails:**
-- Test with: `nepse test-login`
-- Verify credentials with: `nepse list-members`
-- Update credentials with: `nepse add-member`
-
-
+**Support:** For questions or issues, please open an issue on GitHub
