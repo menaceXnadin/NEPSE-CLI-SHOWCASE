@@ -2,6 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/nepse-cli.svg?cacheSeconds=1)](https://badge.fury.io/py/nepse-cli)
 [![Python Version](https://img.shields.io/pypi/pyversions/nepse-cli.svg)](https://pypi.org/project/nepse-cli/)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/nepse-cli?period=total&units=NONE&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/nepse-cli)
 
 ![Nepse CLI](https://res.cloudinary.com/dzbc5mlm9/image/upload/v1768644603/nepse-cli-image_tcx7tx.png)
 
