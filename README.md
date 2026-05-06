@@ -8,7 +8,7 @@
 
 A professional command-line tool for NEPSE market analysis and automated Meroshare IPO applications.
 
-> **Note:** This is a showcase repository. The source code is private.
+[![Watch on YouTube](https://img.youtube.com/vi/S7aOPU2NkIQ/0.jpg)](https://youtu.be/S7aOPU2NkIQ)
 
 ## Installation
 
